@@ -3,7 +3,7 @@ Django==3.2.2
 django-sendgrid-v5==1.2.2
 et-xmlfile==1.1.0
 gunicorn==21.2.0
-numpy==1.25.2
+numpy==1.21.6
 openpyxl==3.1.2
 packaging==23.1
 pandas==2.1.0
