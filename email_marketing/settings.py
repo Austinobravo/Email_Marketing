@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'email_marketing_app'
+    'email_marketing_app',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,17 @@ SENDGRID_API_KEY = config('SENDGRID_API_KEY')
 DEFAULT_FROM_EMAIL = 'austinobravo@gmail.com'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',  # You can customize the toolbar options here
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Link', 'Unlink'],
+            ['NumberedList', 'BulletedList', 'Blockquote'],
+            ['Image', 'Table', 'HorizontalRule'],
+            ['RemoveFormat', 'Source']
+        ],
+    },
+}

@@ -4,6 +4,8 @@ from django.core.mail import send_mail, EmailMessage
 from .models import Email
 from django.template.loader import render_to_string, get_template
 import pandas as pd
+
+from .forms import ContactForm
 # Create your views here.
 
 def index(request):
@@ -84,6 +86,7 @@ def custom_message(request):
             return redirect('index')
         # return render(request, 'message.html')
     else:
-        return render(request, 'message.html')
+        form = ContactForm()
+        return render(request, 'message.html', {'form': form})
 
  
