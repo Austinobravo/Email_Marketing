@@ -1,18 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="" method="post" enctype="multipart/form-data" >
-{% csrf_token %}
-    {% comment %} <input type="text" name="name"> {% endcomment %}
-    <input type="file" name="file">
-    {% comment %} <select name="filetype">
-        <option selected>Select Option<option>
-        <option value="excel">Excel<option>
-        <option value="csv">CSV<option>
-    </select> {% endcomment %}
-    <input type="text" placeholder="subject of your mail" name="subject">
-    <textarea name="message" placeholder="Email content" rows="5"></textarea>
-    <button type="submit">Send</button>
+<div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="#">Home</a></span>
+          <h3>Email Marketing</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</form>
+  <div class="contact-page section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <form id="contact-form" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="name">File</label>
+                  <input type="file" name="file" id="name" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="subject">Subject</label>
+                  <input type="text" name="subject" id="subject" placeholder="Subject..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message" placeholder="Your Message"  autocomplete="on" required></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 {% endblock content %}
