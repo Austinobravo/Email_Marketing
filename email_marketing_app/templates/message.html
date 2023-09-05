@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data" >
+{% csrf_token %}
+    {% comment %} <input type="text" name="name"> {% endcomment %}
+    <input type="file" name="file">
+    {% comment %} <select name="filetype">
+        <option selected>Select Option<option>
+        <option value="excel">Excel<option>
+        <option value="csv">CSV<option>
+    </select> {% endcomment %}
+    <input type="text" placeholder="subject of your mail" name="subject">
+    <textarea name="message" placeholder="Email content" rows="5"></textarea>
+    <button type="submit">Send</button>
+
+</form>
+
+{% endblock content %}
