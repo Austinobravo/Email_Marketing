@@ -37,7 +37,14 @@
       color: blue;
       font-weight: 500;
       width: auto;
-      margin-left: 10px; /* Adjust margin as needed */
+      margin-left: 10px;
+ /* Adjust margin as needed */
+    }
+
+    #remove-file-button{
+      display: none;
+
+
     }
 </style>
 
@@ -46,19 +53,31 @@
   document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('file');
     const selectedFileInput = document.getElementById('selected-file');
+    const removeFileButton = document.getElementById('remove-file-button');
 
     fileInput.addEventListener('change', function () {
-      const selectedFileName = this.files[0] ? this.files[0].name : '';
-      selectedFileInput.value = selectedFileName;
+        const selectedFileName = this.files[0] ? this.files[0].name : '';
+        selectedFileInput.value = selectedFileName;
 
-      // Show the text input only when a file is selected
-      if (selectedFileName) {
-        selectedFileInput.style.display = 'inline-block';
-      } else {
-        selectedFileInput.style.display = 'none';
-      }
+        // Show the text input and remove button only when a file is selected
+        if (selectedFileName) {
+            selectedFileInput.style.display = 'inline-block';
+            removeFileButton.style.display = 'inline-block';
+        } else {
+            selectedFileInput.style.display = 'none';
+            removeFileButton.style.display = 'none';
+        }
     });
-  });
+
+    // Handle the "Remove" button click
+    removeFileButton.addEventListener('click', function () {
+        // Clear the file input and hide the text input and remove button
+        fileInput.value = '';
+        selectedFileInput.value = '';
+        selectedFileInput.style.display = 'none';
+        removeFileButton.style.display = 'none';
+    });
+});
   document.addEventListener('DOMContentLoaded', function () {
     const AttachfileInput = document.getElementById('Attach_file');
     const attachSelectedFileInput = document.getElementById('attach-selected-file');
@@ -113,8 +132,15 @@
                       </label>
                       <input type="file" name="file" id="file" class="file-input" required>
                   </div>
-                  <input type="text" class="selected-file-input" id="selected-file" readonly>
+                  <div class="selected-file-container">
+                      <input type="text" class="selected-file-input" id="selected-file" readonly>
+                      <input type="text" class="selected-file-input" id="selected-file" readonly>
+                    <span class="fa-icon">
+                        <i class="fas fa-times-circle" id="remove-file-button"></i>
+                    </span>
+                  </div>
               </fieldset>
+          
 
               <fieldset>
                 <div class="file-input-container">

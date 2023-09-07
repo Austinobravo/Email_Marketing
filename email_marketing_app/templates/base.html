@@ -37,16 +37,7 @@ https://templatemo.com/tm-591-villa-agency
 <body>
 
   <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
+
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
@@ -56,13 +47,13 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{% url 'home' %}" class="logo">
                         <h1>Jenkins</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="{% url 'home' %}">Home</a></li>
                       <li><a href="#"><i class="fa fa-calendar"></i> </a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -99,7 +90,6 @@ https://templatemo.com/tm-591-villa-agency
   <script src="{% static 'js/isotope.min.js'%}"></script>
   <script src="{% static 'js/owl-carousel.js'%}"></script>
   <script src="{% static 'js/counter.js'%}"></script>
-  <script src="{% static 'js/custom.js'%}"></script>
   <script src="{% static 'js/custom-summernote-buttons.js' %}"></script>
 
   </body>
