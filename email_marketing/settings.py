@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'email_marketing_app',
-    'ckeditor',
     'django_summernote'
 ]
 
@@ -141,19 +140,6 @@ DEFAULT_FROM_EMAIL = 'austinobravo@gmail.com'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_IMAGE_BACKEND = "pillow"
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Custom',  # You can customize the toolbar options here
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline', 'Link', 'Unlink'],
-            ['NumberedList', 'BulletedList', 'Blockquote'],
-            ['Image', 'Table', 'HorizontalRule'],
-            ['RemoveFormat', 'Source']
-        ],
-    },
-}
 SUMMERNOTE_THEME = 'bs4' # You can choose different themes
 SUMMERNOTE_CONFIG = {
     'iframe': False,  # Set this to True if you want to use iframe mode
