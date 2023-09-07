@@ -5,7 +5,7 @@ from .models import Email
 from django.template.loader import render_to_string, get_template
 import pandas as pd
 
-from .forms import ContactForm, MyForm
+from .forms import  MyForm
 # Create your views here.
 
 def index(request):
