@@ -41,15 +41,7 @@
       }
 	});
 
-	var width = $(window).width();
-		$(window).resize(function() {
-		if (width > 767 && $(window).width() < 767) {
-			location.reload();
-		}
-		else if (width < 767 && $(window).width() > 767) {
-			location.reload();
-		}
-	})
+
 
 	const elem = document.querySelector('.properties-box');
 	const filtersElem = document.querySelector('.properties-filter');
