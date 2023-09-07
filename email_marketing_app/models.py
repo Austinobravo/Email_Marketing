@@ -1,4 +1,5 @@
 from django.db import models
+from django_summernote.fields import SummernoteTextField
 
 # Create your models here.
 customer_status = (
@@ -13,3 +14,10 @@ class Email(models.Model):
 
     def __str__(self):
         return self.name
+    
+# models.py
+
+
+class MyModel(models.Model):
+    title = models.CharField(max_length=100)
+    message = SummernoteTextField()

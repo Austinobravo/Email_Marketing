@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'email_marketing_app',
-    'django_summernote'
+    'django_summernote',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,10 @@ DEFAULT_FROM_EMAIL = 'austinobravo@gmail.com'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-SUMMERNOTE_THEME = 'bs4' # You can choose different themes
+# settings.py
+
+# Summernote settings
+SUMMERNOTE_THEME = 'bs4'  # You can choose different themes
 SUMMERNOTE_CONFIG = {
     'iframe': False,  # Set this to True if you want to use iframe mode
     'summernote': {
@@ -155,9 +159,12 @@ SUMMERNOTE_CONFIG = {
             ['table', ['table']],
             ['insert', ['link', 'picture', 'video']],
             ['view', ['fullscreen', 'codeview']],
-            ['my_custom', ['my_custom']],
         ],
         'height': 300,  # Set the height of the editor as per your preference
         'width': '100%',   # Set the width of the editor as per your preference
+        'plugins': {
+            'summernote.plugins.resize': {},
+        },
     },
 }
+
