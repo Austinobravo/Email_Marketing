@@ -6,3 +6,7 @@ class ContactForm(forms.Form):
     message = forms.CharField(
         widget=CKEditorWidget()
     )
+from django_summernote.widgets import SummernoteWidget
+
+class MyForm(forms.Form):
+    message = forms.CharField(widget=SummernoteWidget())

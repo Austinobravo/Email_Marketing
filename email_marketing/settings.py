@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'email_marketing_app',
-    'ckeditor'
+    'ckeditor',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [
@@ -151,5 +152,26 @@ CKEDITOR_CONFIGS = {
             ['Image', 'Table', 'HorizontalRule'],
             ['RemoveFormat', 'Source']
         ],
+    },
+}
+SUMMERNOTE_THEME = 'bs4' # You can choose different themes
+SUMMERNOTE_CONFIG = {
+    'iframe': False,  # Set this to True if you want to use iframe mode
+    'summernote': {
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview']],
+            ['my_custom', ['my_custom']],
+        ],
+        'height': 300,  # Set the height of the editor as per your preference
+        'width': '100%',   # Set the width of the editor as per your preference
     },
 }
