@@ -146,6 +146,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SUMMERNOTE_THEME = 'bs4'  # You can choose different themes
 SUMMERNOTE_CONFIG = {
     'iframe': False,  # Set this to True if you want to use iframe mode
+    'cleaner': {
+    'styles': ['color', 'background-color', 'font-size', 'font-weight', 'text-align', 'margin'],
+    },
     'summernote': {
         'toolbar': [
             ['style', ['style']],

@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import custom_message, index
+from .views import custom_message, success, error
 
 urlpatterns = [
     path('', custom_message, name='home'),
-    path('success/', index, name='index'),
+    path('success/', success, name='success'),
+    path('error/', error, name='error'),
 ]

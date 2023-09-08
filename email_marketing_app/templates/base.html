@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{% static 'css/templatemo-villa-agency.css'%}">
     <link rel="stylesheet" href="{% static 'css/owl.css'%}">
     <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'css/alertify.css'%}">
+    <link rel="stylesheet" href="{% static 'css/alertify.rtl.css'%}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="{% static 'summernote/summernote-bs4.min.css' %}">
     <script src="{% static 'summernote/summernote-bs4.min.js' %}"></script>
@@ -76,12 +78,16 @@ https://templatemo.com/tm-591-villa-agency
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2023  All rights reserved. 
+        <p>Copyright © <span id="current_year"></span>  All rights reserved. 
     
         | Design by: <a rel="nofollow" style="color: blue; font-weight: 900;" href="https://eboguaustine.web.app" target="_blank">Austine</a></p>
       </div>
     </div>
   </footer>
+  <script type="text/javascript">
+    document.getElementById('current_year').innerHTML = new Date().getFullYear()
+  </script>
+
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -91,7 +97,14 @@ https://templatemo.com/tm-591-villa-agency
   <script src="{% static 'js/owl-carousel.js'%}"></script>
   <script src="{% static 'js/counter.js'%}"></script>
   <script src="{% static 'js/custom.js'%}"></script>
+  <script src="{% static 'js/alertify.js'%}"></script>
   <script src="{% static 'js/custom-summernote-buttons.js' %}"></script>
 
+  {% for message in messages%}
+  <script>
+      alertify.set('notifier','position', 'top-left');
+      alertify.success('{{message}}');
+  </script>
+  {%endfor%}
   </body>
 </html>

@@ -19,5 +19,4 @@ class Email(models.Model):
 
 
 class MyModel(models.Model):
-    title = models.CharField(max_length=100)
     message = SummernoteTextField()

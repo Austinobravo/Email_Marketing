@@ -147,7 +147,7 @@
                     <label class="file-input-label" for="file">
                         <i class="fas fa-paperclip"></i> Add Attachment (Optional)
                     </label>
-                    <input type="file" name="Attach_file" id="Attach_file" class="file-input" required multiple>
+                    <input type="file" name="Attach_file" id="Attach_file" class="file-input"  multiple>
                 </div>
                 <input type="text" class="selected-file-input" id="attach-selected-file" readonly>
             </fieldset>
@@ -162,10 +162,9 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="message"><i class="fa-solid fa-envelope"></i><b> Message</b></label>
-                 {% comment %} <textarea name="message" id="message" placeholder="Your Messaage" rows="6"  autocomplete="on" required>
-                </textarea> {% endcomment %}
+
+                  {{ form.message}} 
             </div>
-            {{ form.message }} 
                   
                 </fieldset>
               </div>
