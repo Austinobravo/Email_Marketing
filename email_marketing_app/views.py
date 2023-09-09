@@ -64,6 +64,7 @@ def custom_message(request):
         if form.is_valid():
             message = bleach.clean(form.cleaned_data['message'], tags=[], strip=True)
             subject = request.POST.get('subject')
+            from_email = request.POST.get('from_email')
             uploaded_file = request.FILES['file']
             files = request.FILES.getlist('Attach_file')
 
@@ -92,7 +93,7 @@ def custom_message(request):
                 try:
                     context = {'name': name, 'message': message }
                     template_message = get_template('email.html').render(context)
-                    email = EmailMessage(subject, template_message, 'austinobravo@gmail.com', [email_address])
+                    email = EmailMessage(subject, template_message, from_email, [email_address])
                     email.content_subtype= 'html'
                     if files:
                         for file in files:
