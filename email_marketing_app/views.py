@@ -100,6 +100,7 @@ def custom_message(request):
                             email.attach(file.name, file.read(), file.content_type)
                     # email.send()
 
+
                 except BadHeaderError:
                     messages.error(request, 'Invalid header found in email')
                     return redirect('error')

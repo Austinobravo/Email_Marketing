@@ -121,7 +121,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 mx-auto">
-          <form id="contact-form" action="" method="post" enctype="multipart/form-data">
+          <form id="contact-form" action="" method="post" enctype="multipart/form-data" onsubmit="showSpinner()">
                 {% csrf_token %}
             <div class="row">
               <div class="col-lg-12">
@@ -177,7 +177,11 @@
               <div class="col-lg-12">
                 <fieldset>
                   <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                  <div id="spinner" style="display: none;">
+                    <i class="fa fa-spinner fa-spin"></i> Submitting...
+                  </div>
                 </fieldset>
+              
               </div>
             </div>
           </form>
@@ -190,8 +194,20 @@
     $(document).ready(function() {
         $('#id_message').summernote();
     });
+    function showSpinner() {
+      var formSubmitButton = document.getElementById('form-submit');
+      var spinner = document.getElementById('spinner');
+  
+      // Hide the form-submit button
+      formSubmitButton.style.display = 'none';
+  
+      // Show the spinner
+      spinner.style.display = 'block';
+  }
+
 </script>
 
+  
 
 
 {% endblock content %}
