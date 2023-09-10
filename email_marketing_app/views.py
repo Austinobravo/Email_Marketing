@@ -5,15 +5,19 @@ from django.forms import ValidationError
 from django.http import BadHeaderError, HttpResponse
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, EmailMessage
-from .models import Email
+from .models import Email, Visitor
 from django.template.loader import render_to_string, get_template
 import pandas as pd
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import  MyForm
 import bleach
+
 # Create your views here.
 
+def visitor_count(request):
+    count = Visitor.objects.count()
+    return render(request, 'visitor_count.html', {'count': count})
 
 def sendMail(request):
     mail = Email.objects.all()

@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'email_marketing_app.middleware.VisitorMiddleware'
 ]
 
 ROOT_URLCONF = 'email_marketing.urls'
