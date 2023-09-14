@@ -66,7 +66,8 @@ def custom_message(request):
     if request.method == 'POST':
         form = MyForm(request.POST, request.FILES)
         if form.is_valid():
-            message = bleach.clean(form.cleaned_data['message'], tags=[], strip=True)
+            # message = bleach.clean(form.cleaned_data['message'], tags=[], strip=True)
+            message = form.cleaned_data['message']
             subject = request.POST.get('subject')
             from_email = request.POST.get('from_email')
             uploaded_file = request.FILES['file']
@@ -74,13 +75,13 @@ def custom_message(request):
 
                 # Check the file type based on the file extension
             if uploaded_file.name.endswith('.xlsx'):
-                    data = pd.read_excel(uploaded_file)
+                data = pd.read_excel(uploaded_file, engine='openpyxl', encoding='utf-8', errors='replace')
             elif uploaded_file.name.endswith('.csv'):
-                    data = pd.read_csv(uploaded_file)
+                data = pd.read_csv(uploaded_file, encoding='utf-8', errors='replace')
             else:
                 messages.info(request, "Unsupported file type")
                 return redirect('error')
-            
+
             if 'Emails' not in data.columns:
                 messages.info(request,'Your file has no "Emails" field.')
                 return redirect('error')
@@ -94,6 +95,7 @@ def custom_message(request):
                 email_address = row['Emails']
                 name = row['Names']
 
+
                 try:
                     context = {'name': name, 'message': message }
                     template_message = get_template('email.html').render(context)
@@ -102,7 +104,7 @@ def custom_message(request):
                     if files:
                         for file in files:
                             email.attach(file.name, file.read(), file.content_type)
-                    # email.send()
+                    email.send()
 
 
                 except BadHeaderError:
