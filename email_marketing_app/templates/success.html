@@ -6,9 +6,39 @@
         <div class="col-lg-12">
           <span class="breadcrumb"><i class="fa-solid fa-envelope"></i></span>
           <h3 >All mails were sent.</h3>
+
+          
         </div>
       </div>
     </div>
-</div>
+  </div>
+
+
+  <div class="single-property section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-sm-6">
+          {%if emails%}
+          <h5 class="text-center">{{sent}} sent</h5>
+          <div class="info-table">
+              <ol>
+              {% for email in emails%}
+              <li>
+                <span class="special">{{email}}</span>
+              </li>
+              {% endfor%}
+
+              </li>
+            </ol>
+          </div>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  </div>
 {% endblock content %}
 

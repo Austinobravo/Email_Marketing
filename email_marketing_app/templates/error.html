@@ -4,11 +4,37 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+          {%if error%}
+          <h6 class="text-white">{{error}}</h6>
+          {%endif%}
           {% comment %} <span class="breadcrumb"><i class="fas fa-arrow-left"></i> <a href="{% url 'home' %}">Back to home</a></span> {% endcomment %}
           <h3 style="text-transform: capitalize;">An error occured.</h3>
         </div>
       </div>
     </div>
 </div>
+<div class="single-property section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-sm-6">
+        {%if emails%}
+        <h5 class="text-center">{{sent}} sent</h5>
+        <div class="info-table">
+            <ol>
+            {% for email in emails%}
+            <li>
+              <span class="special">{{email}}</span>
+            </li>
+            {% endfor%}
+
+            </li>
+          </ol>
+        </div>
+        {%endif%}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock content %}
 
